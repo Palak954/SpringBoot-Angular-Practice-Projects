@@ -18,10 +18,6 @@ public class UserController {
     public void initRoleAndUser() {
         userService.initRoleAndUser();
     }
-    @PostMapping("/createNewUser")
-    public User createNewUser(@RequestBody User user){
-        return userService.createNewUser(user);
-    }
     @GetMapping("/fetchUser/{username}")
     public User fetchUser(@PathVariable String username){
         return userService.fetchUser(username);
