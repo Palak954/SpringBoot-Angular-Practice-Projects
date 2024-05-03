@@ -1,6 +1,5 @@
 package com.springboot.JWTAuthentication.Configuration;
 
-import com.springboot.JWTAuthentication.Service.MyUserDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -23,7 +22,7 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 @Configuration
 @EnableWebSecurity
 
-@EnableMethodSecurity
+@EnableMethodSecurity(prePostEnabled = true)
 
 public class WebSecurityConfiguration {
     @Autowired
@@ -35,12 +34,21 @@ public class WebSecurityConfiguration {
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception{
         http.cors(Customizer.withDefaults());
-        http.csrf(csrf->csrf.disable())
-                .authorizeHttpRequests().requestMatchers("")
-                .permitAll().requestMatchers(HttpHeaders.ALLOW).permitAll()
-                .anyRequest().authenticated()
-                .and().exceptionHandling().authenticationEntryPoint(authenticationEntryPoint)
-                .and().sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
+
+        http.csrf(csrf -> csrf.disable())
+                .authorizeHttpRequests(authorize ->
+                        authorize
+                                .requestMatchers("/authenticate").permitAll()
+                                .requestMatchers("/createNewUser").permitAll()
+                                .requestMatchers(HttpHeaders.ALLOW).permitAll()
+                                .anyRequest().authenticated()
+                )
+                .exceptionHandling(exceptions ->
+                        exceptions.authenticationEntryPoint(authenticationEntryPoint)
+                )
+                .sessionManagement(session ->
+                        session.sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+                );
         http.addFilterBefore(jwtRequestFilter , UsernamePasswordAuthenticationFilter.class);
         return http.build();
     }

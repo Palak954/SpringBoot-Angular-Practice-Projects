@@ -1,8 +1,4 @@
 package com.springboot.JWTAuthentication.Entity;
-
-import org.springframework.stereotype.Component;
-
-@Component
 public class JwtResponse {
     private User user;
     private String jwtToken;

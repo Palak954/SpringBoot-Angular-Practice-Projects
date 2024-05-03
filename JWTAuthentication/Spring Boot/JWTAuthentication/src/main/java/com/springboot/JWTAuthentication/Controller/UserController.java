@@ -2,7 +2,9 @@ package com.springboot.JWTAuthentication.Controller;
 
 import com.springboot.JWTAuthentication.Entity.User;
 import com.springboot.JWTAuthentication.Service.UserService;
+import jakarta.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -12,6 +14,10 @@ import java.util.List;
 public class UserController {
     @Autowired
     private UserService userService;
+    @PostConstruct
+    public void initRoleAndUser() {
+        userService.initRoleAndUser();
+    }
     @PostMapping("/createNewUser")
     public User createNewUser(@RequestBody User user){
         return userService.createNewUser(user);
@@ -27,11 +33,12 @@ public class UserController {
     }
 
     @GetMapping("/forAdmin")
+    @PreAuthorize("hasRole('Admin')")
     public String forAdmin(){
         return "this URL is only accessible to admin users";
     }
-
     @GetMapping("/forUser")
+    @PreAuthorize("hasRole('User')")
     public String forUser(){
         return "this URL is only accessible to normal users";
     }

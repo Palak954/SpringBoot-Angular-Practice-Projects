@@ -5,6 +5,7 @@ import com.springboot.JWTAuthentication.Entity.JwtResponse;
 import com.springboot.JWTAuthentication.Entity.User;
 import com.springboot.JWTAuthentication.Repository.UserRepository;
 import com.springboot.JWTAuthentication.Util.JwtHelper;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.BadCredentialsException;
@@ -50,8 +51,9 @@ public class MyUserDetailsService implements UserDetailsService {
             );
         }
     }
+
     private Set getAuthorities(User user){
-        Set authorities = new HashSet();
+        Set<SimpleGrantedAuthority> authorities = new HashSet();
         user.getRole().forEach(role -> {
             authorities.add(new SimpleGrantedAuthority("ROLE_" + role.getRoleName()));
         });
