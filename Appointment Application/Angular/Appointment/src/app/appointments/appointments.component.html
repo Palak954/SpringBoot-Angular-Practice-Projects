@@ -1,0 +1,18 @@
+<table class="table appointment">
+    <thead>
+      <tr>
+        <th scope="col">Patient_Name</th>
+        <th scope="col">Description</th>
+        <th scope="col">Date</th>
+        <th scope="col">Actions</th>
+      </tr>
+    </thead>
+    <tbody *ngFor="let appointment of appointments">
+      <tr>
+        <td>{{appointment.patientName}}</td>
+        <td>{{appointment.description}}</td>
+        <td>{{appointment.date}}</td>
+        <td><button type="button" class="btn btn-success" routerLink="/appointment/edit_appointment/{{appointment.id}}">edit</button>&nbsp;<button type="button" class="btn btn-danger" (click)="onDelete(appointment.id)">delete</button></td>
+      </tr>
+    </tbody>
+  </table>

@@ -1,0 +1,56 @@
+.container {
+    position: relative;
+    width: 100%;
+    height: 80vh; /* Adjust as needed */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.appointments {
+    max-width: 400px;
+    padding: 50px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Adding shadow effect */
+}
+
+/* Styles for form elements */
+.appointments label {
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #333; /* Changing label color */
+}
+
+.appointments input[type="text"],
+.appointments input[type="date"] {
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    width: 100%; /* Making input fields full width */
+    box-sizing: border-box; /* Including padding and border in the width */
+}
+
+/* Adding some styling to input fields on focus */
+.appointments input[type="text"]:focus,
+.appointments input[type="date"]:focus {
+    border-color: #007bff; /* Changing border color on focus */
+}
+
+/* Styles for the submit button */
+.appointments button[type="submit"] {
+    padding: 10px 20px;
+    background-color: #007bff; /* Blue color */
+    color: white;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%; /* Making button full width */
+}
+
+/* Changing button color on hover */
+.appointments button[type="submit"]:hover {
+    background-color: #0056b3; /* Darker blue color on hover */
+}

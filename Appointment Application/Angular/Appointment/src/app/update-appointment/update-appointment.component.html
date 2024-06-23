@@ -1,0 +1,22 @@
+<div class="container">
+    <div class="appointments">
+        <form #appointments="ngForm" (ngSubmit) = "onUpdate()">
+        <h4>Update Apointment</h4>
+        <div class="name">
+            <label for="patientName">Patient Name</label>
+            <input type="text" id="name" name="patientName" ngModel [(ngModel)]="appointment.patientName">
+        </div>
+        <div class="description">
+            <label for="description">Description</label>
+            <input type="text" id="description" name="description" ngModel [(ngModel)]="appointment.description">
+        </div>
+        <div class="date">
+            <label for="date">Date</label>
+            <input type="date" id="date" name="date" ngModel [(ngModel)]="appointment.date">
+        </div>
+        <div class="submit">
+        <button type="submit" class="btn-btn-success">UPDATE</button>
+        </div>
+        </form>
+    </div>
+</div>
