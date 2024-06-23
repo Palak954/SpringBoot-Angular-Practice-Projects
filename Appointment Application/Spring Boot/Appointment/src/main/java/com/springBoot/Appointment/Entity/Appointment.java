@@ -1,9 +1,6 @@
 package com.springBoot.Appointment.Entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 import java.time.LocalDate;
 import java.util.Date;
@@ -12,6 +9,7 @@ import java.util.Date;
 @Table(name = "Book_Appointment")
 public class Appointment {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="appointment_id")
     private int id;
     @Column(name="patient_name")

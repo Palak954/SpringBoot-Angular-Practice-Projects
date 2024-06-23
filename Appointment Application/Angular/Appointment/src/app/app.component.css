@@ -1,0 +1,21 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+.navbar{
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+.nav{
+    background-color:crimson;
+    padding: 20px;
+    margin: 0px;
+    height: 80px;
+}
+.home:hover{
+    color: #fff;
+    font-size: 20px;
+    padding: 10px;
+    margin: 10px;
+}
