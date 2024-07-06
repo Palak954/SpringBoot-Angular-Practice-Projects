@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AppointmentService } from '../services/appointment.service';
+
 import { Appointments } from 'src/appointments';
 
 @Component({

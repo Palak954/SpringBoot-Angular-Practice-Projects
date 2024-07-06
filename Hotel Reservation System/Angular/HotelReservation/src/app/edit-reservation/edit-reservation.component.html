@@ -1,0 +1,54 @@
+<div class="container">
+    <h1>Update Reservation</h1>
+    <form #reservation="ngForm" (ngSubmit)="onUpdate(reservation)">
+        <div class="row mb-3">
+            <div class="col-md-6">
+                <label for="name" class="form-label">Guest Name:</label>
+                <input type="text" class="form-control" name="name" placeholder="name" ngModel [(ngModel)]="fetchreservation.name">
+            </div>
+            <div class="col-md-6">
+                <label for="email" class="form-label">Guest Email:</label>
+                <input type="email" class="form-control" name="email" placeholder="email" ngModel [(ngModel)]="fetchreservation.email">
+            </div>
+        </div>
+        <div class="row mb-3">
+            <div class="col-md-6">
+                <label for="contact" class="form-label">Contact No:</label>
+                <input type="text" class="form-control" name="contact" placeholder="contact" ngModel  [(ngModel)]="fetchreservation.contact">
+            </div>
+            <div class="col-md-6">
+                <label for="address" class="form-label">Address:</label>
+                <textarea name="address" name="address" placeholder="address" class="form-control" ngModel [(ngModel)]="fetchreservation.address"></textarea>
+            </div>
+        </div>
+        <div class="row mb-3">
+            <div class="col-md-6">
+                <label for="country" class="form-label">Country:</label>
+                <select name="country" name="country" class="form-control" ngModel [(ngModel)]="fetchreservation.country">
+                    <option value="India">India</option>
+                    <option value="USA">USA</option>
+                    <option value="UK">UK</option>
+                    <option value="Australia">Australia</option>
+                    <option value="Ireland">Ireland</option>
+                </select>
+            </div>
+            <div class="col-md-6">
+                <label for="checkInDate" class="form-label">Check-In Date:</label>
+                <input type="date" class="form-control" name="checkInDate" ngModel [(ngModel)]="fetchreservation.checkInDate">
+            </div>
+        </div>
+        <div class="row mb-3">
+            <div class="col-md-6">
+                <label for="checkOutDate" class="form-label">Check-Out Date:</label>
+                <input type="date" class="form-control" name="checkOutDate" ngModel [(ngModel)]="fetchreservation.checkOutDate">
+            </div>
+            <div class="col-md-6">
+                <label for="roomNumber" class="form-label">Room Number:</label>
+                <input type="number" class="form-control" name="roomNumber" placeholder="room number" ngModel [(ngModel)]="fetchreservation.roomNumber">
+            </div>
+        </div>
+        <div class="submit">
+            <button type="submit" class="btn btn-primary">Update</button>
+        </div>
+    </form>
+</div>

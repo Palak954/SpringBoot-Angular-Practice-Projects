@@ -1,0 +1,27 @@
+<div class="container">
+    <h1 style="text-align:center; margin:20px;">Reservation List</h1>
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Guest Name</th>
+            <th scope="col">Guest Email</th>
+            <th scope="col">Contact No</th>
+            <th scope="col">Check-in-date</th>
+            <th scope="col">Check-out-date</th>
+            <th scope="col">Room Number</th>
+            <th scope="col">Actions</th>
+          </tr>
+        </thead>
+        <tbody *ngFor="let reservation of Reservation">
+          <tr>
+            <td>{{reservation.name}}</td>
+            <td>{{reservation.email}}</td>
+            <td>{{reservation.contact}}</td>
+            <td>{{reservation.checkInDate}}</td>
+            <td>{{reservation.checkOutDate}}</td>
+            <td>{{reservation.roomNumber}}</td>
+            <td><button class="btn btn-success" routerLink="/edit/{{reservation.id}}">edit</button>&nbsp;<button class="btn btn-danger">delete</button></td>
+          </tr>
+        </tbody>
+      </table>
+</div>

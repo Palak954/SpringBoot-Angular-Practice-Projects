@@ -1,10 +1,6 @@
 package com.springBoot.HotelReservation.Entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
-
+import jakarta.persistence.*;
 import java.time.LocalDate;
 
 @Entity
@@ -12,6 +8,7 @@ import java.time.LocalDate;
 
 public class Reservation {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="Guest_Id")
     private int id;
     @Column(name="Guest_Name")
