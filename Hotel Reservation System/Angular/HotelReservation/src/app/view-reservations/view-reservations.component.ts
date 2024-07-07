@@ -12,10 +12,23 @@ export class ViewReservationsComponent implements OnInit {
   constructor(private reservationService : ReservationServiceService) { }
 
   ngOnInit(): void {
+    this.fetchReservations();
+  }
+  onDelete(id : number){
+    this.reservationService.deleteReservation(id).subscribe({
+      next: (response) => {
+        console.log(response.toString()); // "Reservation deleted successfully"
+        this.fetchReservations(); // Refresh the list
+      },
+      error: (error) => {
+        console.error('Error:', error.message);
+      }
+    });
+  }
+  fetchReservations(){
     this.reservationService.fetchReservations().subscribe((data)=>{
       console.log(data);
       this.Reservation = data;
     })
   }
-
 }

@@ -20,7 +20,7 @@
             <td>{{reservation.checkInDate}}</td>
             <td>{{reservation.checkOutDate}}</td>
             <td>{{reservation.roomNumber}}</td>
-            <td><button class="btn btn-success" routerLink="/edit/{{reservation.id}}">edit</button>&nbsp;<button class="btn btn-danger">delete</button></td>
+            <td><button class="btn btn-success" routerLink="/edit/{{reservation.id}}">edit</button>&nbsp;<button class="btn btn-danger" (click)="onDelete(reservation.id)">delete</button></td>
           </tr>
         </tbody>
       </table>
