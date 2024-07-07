@@ -18,4 +18,10 @@ export class ReservationServiceService {
   fetchReservation(id : number){
     return this.http.get<reservation>(`http://localhost:8080/hotel/fetch_reservation/${id}`);
   }
+  updateReservation(id:number , reservation : reservation){
+    return this.http.put(`http://localhost:8080/hotel/update_reservation/${id}`, reservation);
+  }
+  deleteReservation(id:number){
+    return this.http.delete(`http://localhost:8080/hotel/delete_reservation/${id}`);
+  }
 }
